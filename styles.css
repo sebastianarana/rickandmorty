@@ -1,0 +1,100 @@
+/* Estilos globales */
+body {
+    background-color: #212121; /* Fondo oscuro */
+    font-family: 'Montserrat', sans-serif; /* Fuente inspirada en la serie */
+    color: #fff; /* Texto blanco */
+  }
+  
+  /* Estilos para la navegación */
+  nav {
+    background-color: #333; /* Fondo oscuro */
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  nav a {
+    color: #fff; /* Texto blanco */
+    text-decoration: none;
+    margin-right: 20px;
+  }
+  
+  nav a:hover {
+    color: #ccc; /* Texto gris claro */
+  }
+  
+  /* Estilos para el título */
+  .title {
+    font-family: 'Rick and Morty', sans-serif; /* Fuente de la serie */
+    font-size: 36px;
+    color: #34C759; /* Color verde de la serie */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos para el contenedor de personajes */
+  .characters-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas de igual ancho */
+    gap: 15px; /* Espacio entre las tarjetas */
+    padding: 20px; /* Espacio interno del contenedor */
+    background-color: #333; /* Fondo oscuro */
+    border-radius: 10px; /* Esquinas redondeadas */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra */
+  }
+  
+  /* Estilos para las tarjetas de personajes */
+  .character-card {
+    background-color: #444; /* Fondo oscuro */
+    padding: 15px;
+    border-radius: 10px; /* Esquinas redondeadas */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra */
+    cursor: pointer; /* Cursor de mano */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .character-card:hover {
+    background-color: #555; /* Fondo oscuro más claro */
+  }
+  
+  .character-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0; /* Esquinas redondeadas */
+  }
+  
+  .character-card h2 {
+    font-size: 18px;
+    margin-top: 10px;
+    color: #fff; /* Texto blanco */
+  }
+  
+  .character-card p {
+    font-size: 14px;
+    color: #ccc; /* Texto gris claro */
+  }
+  
+  /* Estilos para el botón "Ver detalles" */
+  button {
+    background-color: #666; /* Fondo oscuro */
+    color: #fff; /* Texto blanco */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer; /* Cursor de mano */
+    border-radius: 10px; /* Esquinas redondeadas */
+    margin-top: 20px;
+  }
+  
+  button:hover {
+    background-color: #777; /* Fondo oscuro más claro */
+  }
+  
+  /* Estilos para alinear los botones */
+  .character-card button {
+    align-self: flex-end;
+  }

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="character-title"></title>
+    <style>
+        .character-detail {
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        
+        .character-detail img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        
+        .character-detail h2 {
+            margin-top: 10px;
+        }
+        
+        .episode-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .episode-list li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        
+        .episode-list li:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="character-detail-container"></div>
+    
+    <script>
+        const characterId = new URLSearchParams(window.location.search).get('id');
+        const apiUrl = `https://rickandmortyapi.com/api/character/${characterId}`;
+        
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                const character = data;
+                document.title = character.name;
+                document.getElementById('character-title').textContent = character.name;
+                
+                const characterDetailContainer = document.getElementById('character-detail-container');
+                const characterDetailDiv = document.createElement('div');
+                characterDetailDiv.classList.add('character-detail');
+                
+                const imageElement = document.createElement('img');
+                imageElement.src = character.image;
+                imageElement.alt = character.name;
+                
+                const nameElement = document.createElement('h2');
+                nameElement.textContent = `Nombre: ${character.name}`;
+                
+                const statusElement = document.createElement('p');
+                statusElement.textContent = `Estado: ${character.status}`;
+                
+                const genderElement = document.createElement('p');
+                genderElement.textContent = `Sexo: ${character.gender}`;
+                
+                const speciesElement = document.createElement('p');
+                speciesElement.textContent = `Especie: ${character.species}`;
+                
+                const episodeListElement = document.createElement('ul');
+                episodeListElement.classList.add('episode-list');
+                
+                character.episode.forEach(episode => {
+                    const episodeListItem = document.createElement('li');
+                    episodeListItem.textContent = episode;
+                    episodeListElement.appendChild(episodeListItem);
+                });
+                
+                characterDetailDiv.appendChild(imageElement);
+                characterDetailDiv.appendChild(nameElement);
+                characterDetailDiv.appendChild(statusElement);
+                characterDetailDiv.appendChild(genderElement);
+                characterDetailDiv.appendChild(speciesElement);
+                characterDetailDiv.appendChild(episodeListElement);
+                characterDetailContainer.appendChild(characterDetailDiv);
+            })
+            .catch(error => console.error('Error:', error));
+    </script>
+</body>
+</html>
