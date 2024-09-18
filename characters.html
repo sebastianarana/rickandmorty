@@ -12,6 +12,8 @@
             margin-bottom: 20px;
             background-color: #f9f9f9;
             text-align: center;
+            width: 300px; /* Agregué un ancho fijo para la tarjeta */
+            margin: 40px auto; /* Agregué margen para centrar la tarjeta */
         }
         
         .character-detail img {
@@ -37,6 +39,19 @@
         
         .episode-list li:last-child {
             border-bottom: none;
+        }
+        
+        .back-button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .back-button:hover {
+            background-color: #3e8e41;
         }
     </style>
 </head>
@@ -83,12 +98,20 @@
                     episodeListElement.appendChild(episodeListItem);
                 });
                 
+                const backButton = document.createElement('button');
+                backButton.classList.add('back-button');
+                backButton.textContent = 'Volver';
+                backButton.onclick = () => {
+                    window.location.href = 'index.html';
+                };
+                
                 characterDetailDiv.appendChild(imageElement);
                 characterDetailDiv.appendChild(nameElement);
                 characterDetailDiv.appendChild(statusElement);
                 characterDetailDiv.appendChild(genderElement);
                 characterDetailDiv.appendChild(speciesElement);
                 characterDetailDiv.appendChild(episodeListElement);
+                characterDetailDiv.appendChild(backButton);
                 characterDetailContainer.appendChild(characterDetailDiv);
             })
             .catch(error => console.error('Error:', error));
